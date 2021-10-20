@@ -300,7 +300,7 @@
 -r:"C:/Program Files/Unity/Hub/Editor/2021.1.17f1/Editor/Data/NetStandard/Extensions/2.0.0/System.Numerics.Vectors.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.1.17f1/Editor/Data/NetStandard/Extensions/2.0.0/System.Runtime.InteropServices.WindowsRuntime.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2021.1.17f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll"
--r:"C:/Users/Nick/Documents/GitHub/Trans-Trans/Transpiration Transformation Steds/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll"
+-r:"C:/Users/Nick/Documents/GitHub/Trans-Trans_Unity/Transpiration Transformation Steds/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.PlasticSCM.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Rider.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.TextMeshPro.Editor.ref.dll"
@@ -312,6 +312,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/Scripts/Conditions.cs"
+"Assets/Scripts/Manager.cs"
 -langversion:8.0
 
 /deterministic
