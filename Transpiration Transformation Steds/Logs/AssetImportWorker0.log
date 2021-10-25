@@ -200,3 +200,4 @@ Received Import Request.
   path: Assets/Scripts/Conditions.cs
   artifactKey: Guid(b7ccfa735a1067141825ec6c2ad3dfcb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Scripts/Conditions.cs using Guid(b7ccfa735a1067141825ec6c2ad3dfcb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '016641848acf3a8bde15a5d5eae58472') in 0.008816 seconds 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
