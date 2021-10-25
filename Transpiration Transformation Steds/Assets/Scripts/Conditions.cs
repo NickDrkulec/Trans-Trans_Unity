@@ -7,11 +7,15 @@ public class Conditions : MonoBehaviour
     public GameObject[] conditions;
     public int randomIndex;
 
+
+    //At game start, a condition is picked
     void Start()
     {
         Pick();
     }
 
+
+    //A condition is randomly picked and a clone of that object is made
     void Pick()
     {
         randomIndex = Random.Range(0, conditions.Length);
