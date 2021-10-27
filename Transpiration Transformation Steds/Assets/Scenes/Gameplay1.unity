@@ -2102,8 +2102,6 @@ MonoBehaviour:
   - {fileID: 1489453951}
   ResetScreen: {fileID: 2092257802}
   End: {fileID: 2092257802}
-  conditions: []
-  randomIndex: 0
 --- !u!4 &1476899243
 Transform:
   m_ObjectHideFlags: 0
