@@ -16,18 +16,18 @@ public class Manager : MonoBehaviour
 
     public void Start()
     {
-        Instantiate(plant, new Vector3(plantSpawnX, plantSpawnY, plantSpawnZ), Quaternion.identity);
+        // Instantiate(plant, new Vector3(plantSpawnX, plantSpawnY, plantSpawnZ), Quaternion.identity);
     }
 
     public void Update()
     {
         if (gotCorrectAnswer())
         {
-            // nextLevel();
+            nextLevel();
             Destroy(plant);
             // Update progress bar
             // Play correct sfx
-            Instantiate(plant, new Vector3(plantSpawnX, plantSpawnY, plantSpawnZ), Quaternion.identity);
+            // Instantiate(plant, new Vector3(plantSpawnX, plantSpawnY, plantSpawnZ), Quaternion.identity);
         }
         else
         {
@@ -51,20 +51,20 @@ public class Manager : MonoBehaviour
     }
     
     // When a question is answered correctly, the next level is loaded. If there is no next level to load, it will load an "end scene"
-    //public void nextLevel()
-    //{
-    //    if (currentLevel + 1 != Levels.Length)
-    //    {
-    //        Levels[currentLevel].SetActive(false);
-    //        currentLevel++;
-    //        Levels[currentLevel].SetActive(true);
-    //    }
-    //    else
-    //    {
-    //        End.SetActive(true);
-    //        Levels[currentLevel].SetActive(false);
-    //    }
-    //}
+    public void nextLevel()
+    {
+        if (currentLevel + 1 != Levels.Length)
+        {
+            Levels[currentLevel].SetActive(false);
+            currentLevel++;
+            Levels[currentLevel].SetActive(true);
+        }
+        else
+        {
+            End.SetActive(true);
+            Levels[currentLevel].SetActive(false);
+        }
+    }
 
 
 
