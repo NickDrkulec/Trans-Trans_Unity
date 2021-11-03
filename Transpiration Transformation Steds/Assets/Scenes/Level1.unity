@@ -460,16 +460,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plants:
-  - {fileID: 8871078503480091371, guid: b8a5bcda783cc4f408ec55c8803c0a4c, type: 3}
-  - {fileID: 449166071124543998, guid: ad556925cc055d54fb0f4639e5b37889, type: 3}
-  - {fileID: 6252066713417310669, guid: 898b4e547595a0d4e9ffbbede1411aeb, type: 3}
-  plantSpawnX: 0
-  plantSpawnY: 100
+  - {fileID: 7905555441714967641, guid: b8a5bcda783cc4f408ec55c8803c0a4c, type: 3}
+  - {fileID: 7166542892649671949, guid: ad556925cc055d54fb0f4639e5b37889, type: 3}
+  - {fileID: 1919977488506736552, guid: 898b4e547595a0d4e9ffbbede1411aeb, type: 3}
+  plantSpawnX: 530
+  plantSpawnY: 250
   plantSpawnZ: 0
   buttons:
   - {fileID: 1480113789}
   - {fileID: 1039748720}
   - {fileID: 248474265}
+  UI_Canvas: {fileID: 1585424535}
 --- !u!1 &839947082
 GameObject:
   m_ObjectHideFlags: 0

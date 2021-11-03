@@ -11,12 +11,14 @@ public class GameManager : MonoBehaviour
 
     public UnityEngine.UI.Button[] buttons;
     UnityEngine.UI.Button correctButton;
+    public Transform UI_Canvas;
 
     // Start is called before the first frame update
     void Start()
     {
-        plantIndex = Random.Range(0, 2);
+        plantIndex = Random.Range(0, 3);
         plant = Instantiate(plants[plantIndex], new Vector3(plantSpawnX, plantSpawnY, plantSpawnZ), Quaternion.identity);
+        plant.transform.SetParent(UI_Canvas, true);
         correctButton = buttons[plantIndex];
     }
 
@@ -32,6 +34,7 @@ public class GameManager : MonoBehaviour
         Destroy(plant);
         // Correct choice sfx & VO
         // Spawn new plant & set correct button
+        plantIndex = Random.Range(0, 3);
         plant = Instantiate(plants[plantIndex], new Vector3(plantSpawnX, plantSpawnY, plantSpawnZ), Quaternion.identity);
         correctButton = buttons[plantIndex];
     }
