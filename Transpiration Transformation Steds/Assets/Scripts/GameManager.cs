@@ -15,12 +15,14 @@ public class GameManager : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip[] correctChoices;
-    int choiceClipIndex;
+    AudioClip correctChoiceClip;
+    AudioClip lastCorrectChoiceClip;
     public float VO_Volume;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Spawn new plant & set correct button
         plantIndex = Random.Range(0, plants.Length);
         plant = Instantiate(plants[plantIndex], new Vector3(plantSpawnX, plantSpawnY, plantSpawnZ), Quaternion.identity);
         plant.transform.SetParent(UI_Canvas, true);
@@ -36,9 +38,20 @@ public class GameManager : MonoBehaviour
     void CorrectAnswer()
     {
         // Play a random correct choice VO line
-        choiceClipIndex = Random.Range(0, correctChoices.Length);
-        audioSource.PlayOneShot(correctChoices[choiceClipIndex], VO_Volume);
-
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop();
+            correctChoiceClip = RandomClip(correctChoices, lastCorrectChoiceClip);
+            audioSource.PlayOneShot(correctChoiceClip);
+            lastCorrectChoiceClip = correctChoiceClip;
+        }
+        else
+        {
+            correctChoiceClip = RandomClip(correctChoices, lastCorrectChoiceClip);
+            audioSource.PlayOneShot(correctChoiceClip);
+            lastCorrectChoiceClip = correctChoiceClip;
+        }
+        
         // Destroy current plant
         Destroy(plant);
 
@@ -47,5 +60,17 @@ public class GameManager : MonoBehaviour
         plant = Instantiate(plants[plantIndex], new Vector3(plantSpawnX, plantSpawnY, plantSpawnZ), Quaternion.identity);
         plant.transform.SetParent(UI_Canvas, true);
         correctButton = buttons[plantIndex];
+    }
+
+    // Takes an array of audio clips and returns a random one
+    AudioClip RandomClip(AudioClip[] audioClipArray, AudioClip lastClip)
+    {
+        AudioClip newClip = audioClipArray[Random.Range(0, audioClipArray.Length)];
+
+        while (newClip == lastClip)
+        {
+            newClip = audioClipArray[Random.Range(0, audioClipArray.Length)];
+        }
+        return newClip;
     }
 }
