@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        correctButton.onClick.AddListener(CorrectAnswer);
+        buttons[plantIndex].onClick.AddListener(CorrectAnswer);
     }
 
     void CorrectAnswer()

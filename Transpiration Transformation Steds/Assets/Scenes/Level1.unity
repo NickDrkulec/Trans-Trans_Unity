@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 248474266}
   - component: {fileID: 248474265}
   m_Layer: 5
-  m_Name: TriangleButton
+  m_Name: SunButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -807,7 +807,7 @@ GameObject:
   - component: {fileID: 1039748721}
   - component: {fileID: 1039748720}
   m_Layer: 5
-  m_Name: CircleButton
+  m_Name: WaterButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -928,7 +928,7 @@ GameObject:
   - component: {fileID: 1480113790}
   - component: {fileID: 1480113789}
   m_Layer: 5
-  m_Name: SquareButton
+  m_Name: SoilButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
