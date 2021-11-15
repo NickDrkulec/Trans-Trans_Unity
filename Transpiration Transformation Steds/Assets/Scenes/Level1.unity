@@ -466,6 +466,10 @@ MonoBehaviour:
   plantSpawnX: 475
   plantSpawnY: 207
   plantSpawnZ: 0
+  unhealthySoil: {fileID: 5842104286431021531, guid: 84655bd8a142a5f4cbc0c40675e75475, type: 3}
+  soilSpawnX: 0.289
+  soilSpawnY: -2.94
+  soilSpawnZ: -1
   buttons:
   - {fileID: 1480113789}
   - {fileID: 1039748720}

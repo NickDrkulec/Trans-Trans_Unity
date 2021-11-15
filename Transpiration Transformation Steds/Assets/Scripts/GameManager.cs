@@ -7,7 +7,12 @@ public class GameManager : MonoBehaviour
     public GameObject[] plants;
     GameObject plant;
     int plantIndex;
+    int lastPlantIndex;
     public float plantSpawnX, plantSpawnY, plantSpawnZ;
+
+    public GameObject unhealthySoil;
+    GameObject badSoil;
+    public float soilSpawnX, soilSpawnY, soilSpawnZ;
 
     public UnityEngine.UI.Button[] buttons;
     UnityEngine.UI.Button correctButton;
@@ -24,9 +29,16 @@ public class GameManager : MonoBehaviour
     {
         // Spawn new plant & set correct button
         plantIndex = Random.Range(0, plants.Length);
+        lastPlantIndex = plantIndex;
         plant = Instantiate(plants[plantIndex], new Vector3(plantSpawnX, plantSpawnY, plantSpawnZ), Quaternion.identity);
         plant.transform.SetParent(UI_Canvas, true);
         correctButton = buttons[plantIndex];
+
+        // Adds bad soil if needed
+        if (plantIndex == 0)
+        {
+            badSoil = Instantiate(unhealthySoil, new Vector3(soilSpawnX, soilSpawnY, soilSpawnZ), Quaternion.identity);
+        }
     }
 
     // Update is called once per frame
@@ -41,13 +53,19 @@ public class GameManager : MonoBehaviour
         if (audioSource.isPlaying)
         {
             audioSource.Stop();
-            correctChoiceClip = RandomClip(correctChoices, lastCorrectChoiceClip);
+            while (correctChoiceClip == lastCorrectChoiceClip)
+            {
+                correctChoiceClip = RandomClip(correctChoices, lastCorrectChoiceClip);
+            }
             audioSource.PlayOneShot(correctChoiceClip);
             lastCorrectChoiceClip = correctChoiceClip;
         }
         else
         {
-            correctChoiceClip = RandomClip(correctChoices, lastCorrectChoiceClip);
+            while (correctChoiceClip == lastCorrectChoiceClip)
+            {
+                correctChoiceClip = RandomClip(correctChoices, lastCorrectChoiceClip);
+            }
             audioSource.PlayOneShot(correctChoiceClip);
             lastCorrectChoiceClip = correctChoiceClip;
         }
@@ -56,10 +74,25 @@ public class GameManager : MonoBehaviour
         Destroy(plant);
 
         // Spawn new plant & set correct button
-        plantIndex = Random.Range(0, 3);
+        while (plantIndex == lastPlantIndex)
+        {
+            plantIndex = Random.Range(0, 3);
+        }
+        lastPlantIndex = plantIndex;
+
+        if (plantIndex != 0)
+        {
+            Destroy(badSoil);
+        }
         plant = Instantiate(plants[plantIndex], new Vector3(plantSpawnX, plantSpawnY, plantSpawnZ), Quaternion.identity);
         plant.transform.SetParent(UI_Canvas, true);
         correctButton = buttons[plantIndex];
+
+        // Adds bad soil if needed
+        if (plantIndex == 0 && !unhealthySoil.activeInHierarchy)
+        {
+            badSoil = Instantiate(unhealthySoil, new Vector3(soilSpawnX, soilSpawnY, soilSpawnZ), Quaternion.identity);
+        }
     }
 
     // Takes an array of audio clips and returns a random one
