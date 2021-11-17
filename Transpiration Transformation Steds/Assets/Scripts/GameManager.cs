@@ -27,18 +27,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Spawn new plant & set correct button
-        plantIndex = Random.Range(0, plants.Length);
-        lastPlantIndex = plantIndex;
-        plant = Instantiate(plants[plantIndex], new Vector3(plantSpawnX, plantSpawnY, plantSpawnZ), Quaternion.identity);
-        plant.transform.SetParent(UI_Canvas, true);
-        correctButton = buttons[plantIndex];
-
-        // Adds bad soil if needed
-        if (plantIndex == 0)
-        {
-            badSoil = Instantiate(unhealthySoil, new Vector3(soilSpawnX, soilSpawnY, soilSpawnZ), Quaternion.identity);
-        }
+        SpawnNewPlant();
     }
 
     // Update is called once per frame
@@ -73,6 +62,23 @@ public class GameManager : MonoBehaviour
         // Destroy current plant
         Destroy(plant);
 
+        SpawnNewPlant();
+    }
+
+    // Takes an array of audio clips and returns a random one
+    AudioClip RandomClip(AudioClip[] audioClipArray, AudioClip lastClip)
+    {
+        AudioClip newClip = audioClipArray[Random.Range(0, audioClipArray.Length)];
+
+        while (newClip == lastClip)
+        {
+            newClip = audioClipArray[Random.Range(0, audioClipArray.Length)];
+        }
+        return newClip;
+    }
+
+    void SpawnNewPlant()
+    {
         // Spawn new plant & set correct button
         while (plantIndex == lastPlantIndex)
         {
@@ -93,17 +99,5 @@ public class GameManager : MonoBehaviour
         {
             badSoil = Instantiate(unhealthySoil, new Vector3(soilSpawnX, soilSpawnY, soilSpawnZ), Quaternion.identity);
         }
-    }
-
-    // Takes an array of audio clips and returns a random one
-    AudioClip RandomClip(AudioClip[] audioClipArray, AudioClip lastClip)
-    {
-        AudioClip newClip = audioClipArray[Random.Range(0, audioClipArray.Length)];
-
-        while (newClip == lastClip)
-        {
-            newClip = audioClipArray[Random.Range(0, audioClipArray.Length)];
-        }
-        return newClip;
     }
 }
