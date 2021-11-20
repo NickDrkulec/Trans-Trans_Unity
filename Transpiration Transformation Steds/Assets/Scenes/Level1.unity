@@ -470,10 +470,7 @@ MonoBehaviour:
   soilSpawnX: 0.289
   soilSpawnY: -2.94
   soilSpawnZ: -1
-  buttons:
-  - {fileID: 1480113789}
-  - {fileID: 1039748720}
-  - {fileID: 248474265}
+  resources: []
   UI_Canvas: {fileID: 1585424535}
   audioSource: {fileID: 1515533334}
   correctChoices:

@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     GameObject badSoil;
     public float soilSpawnX, soilSpawnY, soilSpawnZ;
 
-    public UnityEngine.UI.Button[] buttons;
+    public UnityEngine.UI.Button[] resources;
     UnityEngine.UI.Button correctButton;
     public Transform UI_Canvas;
 
@@ -33,7 +33,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        buttons[plantIndex].onClick.AddListener(CorrectAnswer);
+        resources[plantIndex].onClick.AddListener(CorrectAnswer);
+        CheckChoice();
     }
 
     void CorrectAnswer()
@@ -92,7 +93,7 @@ public class GameManager : MonoBehaviour
         }
         plant = Instantiate(plants[plantIndex], new Vector3(plantSpawnX, plantSpawnY, plantSpawnZ), Quaternion.identity);
         plant.transform.SetParent(UI_Canvas, true);
-        correctButton = buttons[plantIndex];
+        correctButton = resources[plantIndex];
 
         // Adds bad soil if needed
         if (plantIndex == 0 && !unhealthySoil.activeInHierarchy)
@@ -100,4 +101,10 @@ public class GameManager : MonoBehaviour
             badSoil = Instantiate(unhealthySoil, new Vector3(soilSpawnX, soilSpawnY, soilSpawnZ), Quaternion.identity);
         }
     }
+
+    void CheckChoice()
+    {
+        // if plant index equals resource colliding with plant's index
+    }
+        
 }
