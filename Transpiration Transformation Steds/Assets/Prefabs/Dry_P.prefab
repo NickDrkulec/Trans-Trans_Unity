@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8315719477054365011}
   - component: {fileID: 6363831543518656253}
   - component: {fileID: 2918971538458075296}
+  - component: {fileID: 1179987189436280556}
   m_Layer: 0
   m_Name: Dry_P
   m_TagString: Untagged
@@ -75,3 +76,15 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1179987189436280556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7726647693007371942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9f179f1ac124f243b21c9c053ff11b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

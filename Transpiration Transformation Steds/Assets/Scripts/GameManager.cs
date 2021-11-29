@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public GameObject[] plants;
     GameObject plant;
-    int plantIndex;
+    public int plantIndex;
     int lastPlantIndex;
     public float plantSpawnX, plantSpawnY, plantSpawnZ;
 
@@ -33,11 +33,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        resources[plantIndex].onClick.AddListener(CorrectAnswer);
+        //resources[plantIndex].onClick.AddListener(CorrectAnswer);
         CheckChoice();
     }
 
-    void CorrectAnswer()
+    public void CorrectAnswer()
     {
         // Play a random correct choice VO line
         if (audioSource.isPlaying)
@@ -93,7 +93,7 @@ public class GameManager : MonoBehaviour
         }
         plant = Instantiate(plants[plantIndex], new Vector3(plantSpawnX, plantSpawnY, plantSpawnZ), Quaternion.identity);
         plant.transform.SetParent(UI_Canvas, true);
-        correctButton = resources[plantIndex];
+        //correctButton = resources[plantIndex];
 
         // Adds bad soil if needed
         if (plantIndex == 0 && !unhealthySoil.activeInHierarchy)
